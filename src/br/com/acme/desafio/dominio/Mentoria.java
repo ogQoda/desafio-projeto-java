@@ -4,31 +4,12 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Objects;
 
-public class Mentoria {
-    private String titulo;
-    private String descricao;
+public class Mentoria extends Conteudo {
     LocalDate data;
 
-    public Mentoria(String titulo, String descricao, LocalDate data) {
-        this.titulo = titulo;
-        this.descricao = descricao;
-        this.data = data;
-    }
-
-    public String getTitulo() {
-        return titulo;
-    }
-
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
-    }
-
-    public String getDescricao() {
-        return descricao;
-    }
-
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
+    @Override
+    public double calcularXp() {
+        return Conteudo.XP_PADRAO + 20;
     }
 
     public LocalDate getData() {
@@ -40,23 +21,10 @@ public class Mentoria {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Mentoria mentoria = (Mentoria) o;
-        return Objects.equals(titulo, mentoria.titulo) && Objects.equals(descricao, mentoria.descricao) && Objects.equals(data, mentoria.data);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(titulo, descricao, data);
-    }
-
-    @Override
     public String toString() {
         return "Mentoria{" +
-                "titulo='" + titulo + '\'' +
-                ", descricao='" + descricao + '\'' +
+                "titulo='" + getTitulo() + '\'' +
+                ", descricao='" + getDescricao() + '\'' +
                 ", data=" + data.format(DateTimeFormatter.ofPattern("dd/MM/yyyy")) +
                 '}';
     }
