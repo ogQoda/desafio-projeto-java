@@ -1,6 +1,4 @@
-import br.com.acme.desafio.dominio.Conteudo;
-import br.com.acme.desafio.dominio.Curso;
-import br.com.acme.desafio.dominio.Mentoria;
+import br.com.acme.desafio.dominio.*;
 
 import java.time.LocalDate;
 
@@ -23,6 +21,38 @@ public class Main {
         mentoria.setTitulo("Kotlin Avancado");
         mentoria.setDescricao("Curso de Kotlin Avancado");
         mentoria.setData(LocalDate.now());
+
+        Bootcamp bootcamp = new Bootcamp();
+        bootcamp.setNome("Bootcamp Java Developer");
+        bootcamp.setDescricao("Bootcamp Java Developer TQI");
+        bootcamp.getConteudos().add(curso);
+        bootcamp.getConteudos().add(curso2);
+        bootcamp.getConteudos().add(mentoria);
+
+        Dev devCarlos = new Dev();
+        devCarlos.setNome("Carlos");
+        devCarlos.inscreverBootcamp(bootcamp);
+        System.out.println("DevCarlos conteudos inscritos: " + devCarlos.getConteudosInscritos());
+        devCarlos.progredir();
+        System.out.println(" -- ");
+        System.out.println("DevCarlos conteudos inscritos: " + devCarlos.getConteudosInscritos());
+        System.out.println("DevCarlos conteudos concluidos: " + devCarlos.getConteudosConcluidos());
+        System.out.println("XP: " + devCarlos.calcularTotalXp());
+
+        System.out.println("----------------------");
+
+        Dev devJoao = new Dev();
+        devJoao.setNome("João");
+        devJoao.inscreverBootcamp(bootcamp);
+        System.out.println("DevJoao conteudos inscritos: " + devJoao.getConteudosInscritos());
+        devJoao.progredir();
+        devJoao.progredir();
+        System.out.println(" -- ");
+        System.out.println("DevJoao conteudos inscritos: " + devJoao.getConteudosInscritos());
+        System.out.println("DevJoao conteudos concluidos: " + devJoao.getConteudosConcluidos());
+        System.out.println("XP: " + devJoao.calcularTotalXp());
+
+
 
 //        System.out.println(curso);
 //        System.out.println(curso2);
