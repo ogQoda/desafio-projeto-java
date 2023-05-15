@@ -24,9 +24,9 @@ public class Main {
         mentoria.setDescricao("Curso de Kotlin Avancado");
         mentoria.setData(LocalDate.now());
 
-        System.out.println(curso);
-        System.out.println(curso2);
-        System.out.println(mentoria);
+//        System.out.println(curso);
+//        System.out.println(curso2);
+//        System.out.println(mentoria);
 
     }
 }
